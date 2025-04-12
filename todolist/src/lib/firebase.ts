@@ -1,11 +1,8 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+// Import dari Firebase SDK
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Konfigurasi Firebase kamu — ganti dengan info dari Firebase Console
 const firebaseConfig = {
   apiKey: "AIzaSyCDi8crjsRbJ81mis_m75CLnKja_QUOutY",
   authDomain: "todolist-9bbde.firebaseapp.com",
@@ -16,6 +13,11 @@ const firebaseConfig = {
   measurementId: "G-9E3VEB37QS"
 };
 
-// Initialize Firebase
+// Inisialisasi Firebase app
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+
+// Inisialisasi Firestore
+const db = getFirestore(app);
+
+// Export db supaya bisa dipakai di file lain
+export { db };
